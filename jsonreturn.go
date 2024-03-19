@@ -14,11 +14,13 @@ type SuccessMsg struct {
 	Data   interface{} `json:"data"`
 }
 
-func (err *ErrorMessage)ReturnError() {
+func (err *ErrorMessage)ReturnError(){
+	
 	ctx.JSON(400,gin.H{
 		"status":err.Status,
 		"message":err.Message,
 	})
+	return 
 }
 
 func (su *SuccessMsg)ReturnSuccess(){
@@ -26,4 +28,7 @@ func (su *SuccessMsg)ReturnSuccess(){
 		"status":su.Status,
 		"data":su.Data,
 	})
+	return 
 }
+
+
